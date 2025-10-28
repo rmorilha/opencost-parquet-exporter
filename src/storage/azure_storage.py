@@ -48,7 +48,7 @@ class AzureStorage(BaseStorage):
         client_id = config.get('azure_application_id') or os.environ.get('AZURE_CLIENT_ID')
         tenant_id = config.get('azure_tenant') or os.environ.get('AZURE_TENANT_ID')
         secret = config.get('azure_application_secret')
-        token_file = os.environ.get('AZURE_FEDERATED_TOKEN_FILE')
+        token_file = config.get('azure_federated_token_file') or os.environ.get('AZURE_FEDERATED_TOKEN_FILE')
 
         def build_client_secret_credential():
             missing = [name for name in (

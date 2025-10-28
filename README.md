@@ -33,6 +33,7 @@ The script supports the following environment variables:
 * OPENCOST_PARQUET_AZURE_TENANT: Your Azure Tenant ID. When omitted the exporter falls back to the `AZURE_TENANT_ID` environment variable provided by Azure AD Workload Identity.
 * OPENCOST_PARQUET_AZURE_APPLICATION_ID: Client ID of the Service Principal. When omitted the exporter falls back to the `AZURE_CLIENT_ID` environment variable provided by Azure AD Workload Identity.
 * OPENCOST_PARQUET_AZURE_APPLICATION_SECRET: Secret of the Service Principal. Required when using client-secret authentication.
+* OPENCOST_PARQUET_AZURE_FEDERATED_TOKEN_FILE: Path to the federated token file for workload identity authentication. When omitted the exporter falls back to the `AZURE_FEDERATED_TOKEN_FILE` environment variable provided by Azure AD Workload Identity.
 * OPENCOST_PARQUET_AZURE_AUTH_MODE: Optional. Controls which Azure credential to use. Supported values are `auto` (default), `client-secret`, and `workload-identity`.
 
 ## GCP Specific Environment Variables

@@ -146,6 +146,7 @@ def get_config(
             'azure_tenant': os.environ.get('OPENCOST_PARQUET_AZURE_TENANT') or os.environ.get('AZURE_TENANT_ID'),
             'azure_application_id': os.environ.get('OPENCOST_PARQUET_AZURE_APPLICATION_ID') or os.environ.get('AZURE_CLIENT_ID'),
             'azure_application_secret': os.environ.get('OPENCOST_PARQUET_AZURE_APPLICATION_SECRET'),
+            'azure_federated_token_file': os.environ.get('OPENCOST_PARQUET_AZURE_FEDERATED_TOKEN_FILE') or os.environ.get('AZURE_FEDERATED_TOKEN_FILE'),
             'azure_auth_mode': azure_auth_mode if azure_auth_mode in (
                 'auto', 'client-secret', 'workload-identity'
             ) else 'auto',
