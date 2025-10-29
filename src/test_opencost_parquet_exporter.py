@@ -81,7 +81,7 @@ class TestGetConfig(unittest.TestCase):
                 'OPENCOST_PARQUET_AZURE_AUTH_MODE': 'workload-identity',
                 'AZURE_CLIENT_ID': 'identity-client-id',
                 'AZURE_TENANT_ID': 'identity-tenant-id',
-                'AZURE_FEDERATED_TOKEN_FILE': '/var/run/secrets/azure/tokens/token',
+                'AZURE_FEDERATED_TOKEN_FILE': '/var/run/secrets/azure/tokens/azure-identity-token',
                 'OPENCOST_PARQUET_FILE_KEY_PREFIX': 'prefix/',
                 'OPENCOST_PARQUET_WINDOW_START': '2020-01-01T00:00:00Z',
                 'OPENCOST_PARQUET_WINDOW_END': '2020-01-01T23:59:59Z'}, clear=True):
@@ -92,7 +92,7 @@ class TestGetConfig(unittest.TestCase):
             self.assertEqual(config['azure_container_name'], 'testcontainer')
             self.assertEqual(config['azure_application_id'], 'identity-client-id')
             self.assertEqual(config['azure_tenant'], 'identity-tenant-id')
-            self.assertEqual(config['azure_federated_token_file'], '/var/run/secrets/azure/tokens/token')
+            self.assertEqual(config['azure_federated_token_file'], '/var/run/secrets/azure/tokens/azure-identity-token')
 
     def test_get_azure_config_with_opencost_token_file_precedence(self):
         """Test OPENCOST_PARQUET_AZURE_FEDERATED_TOKEN_FILE takes precedence over AZURE_FEDERATED_TOKEN_FILE."""
@@ -104,7 +104,7 @@ class TestGetConfig(unittest.TestCase):
                 'AZURE_CLIENT_ID': 'identity-client-id',
                 'AZURE_TENANT_ID': 'identity-tenant-id',
                 'OPENCOST_PARQUET_AZURE_FEDERATED_TOKEN_FILE': '/custom/token/path',
-                'AZURE_FEDERATED_TOKEN_FILE': '/var/run/secrets/azure/tokens/token',
+                'AZURE_FEDERATED_TOKEN_FILE': '/var/run/secrets/azure/tokens/azure-identity-token',
                 'OPENCOST_PARQUET_FILE_KEY_PREFIX': 'prefix/',
                 'OPENCOST_PARQUET_WINDOW_START': '2020-01-01T00:00:00Z',
                 'OPENCOST_PARQUET_WINDOW_END': '2020-01-01T23:59:59Z'}, clear=True):
